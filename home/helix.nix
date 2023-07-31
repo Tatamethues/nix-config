@@ -1,5 +1,9 @@
 { pkgs, catppuccin-helix ,...}: {
   xdg.configFile."helix/themes".source = "${catppuccin-helix}/themes/default";
+
+  home.packages = with pkgs;[
+    nil
+  ];
   programs.helix = {
     enable = true;
     # package = pkgs.helix;

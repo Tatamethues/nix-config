@@ -1,14 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs,user_name,user_fullname,user_email, ... }:
 
 {
   imports = [
     ./nushell
-    ./helix.nix
+    # ./helix.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "colin";
-  home.homeDirectory = "/home/colin";
+  home.username = user_name;
+  home.homeDirectory = "/home/${user_name}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -25,6 +25,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+    pkgs.lazygit
     pkgs.fd
     pkgs.helix
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -75,8 +76,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Colin Shen";
-    userEmail = "colinshen.work@outlook.com";
+    userName = user_fullname;
+    userEmail = user_email;
   };
 
 
